@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<style>
+			body {
+				width: 500px;
+				padding: 15px;
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+				font-size: 14px;
+			}
+			h2 {
+				margin: 0 0 15px 0;
+				font-size: 16px;
+			}
+			.status {
+				padding: 10px;
+				margin-bottom: 15px;
+				border-radius: 4px;
+				background: #f0f0f0;
+			}
+			.data-section {
+				margin-bottom: 15px;
+			}
+			.data-title {
+				font-weight: 600;
+				margin-bottom: 8px;
+			}
+			pre {
+				background: #f5f5f5;
+				padding: 10px;
+				border-radius: 4px;
+				overflow-x: auto;
+				max-height: 300px;
+				font-size: 12px;
+				margin: 0;
+			}
+			button {
+				background: #007bff;
+				color: white;
+				border: none;
+				padding: 10px 16px;
+				border-radius: 6px;
+				cursor: pointer;
+				font-size: 13px;
+				font-weight: 500;
+				transition: all 0.2s;
+				flex: 1;
+			}
+			button:hover {
+				background: #0056b3;
+				transform: translateY(-1px);
+				box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+			}
+			button:disabled {
+				background: #ccc;
+				cursor: not-allowed;
+			}
+			.buttons {
+				margin-top: 15px;
+			}
+			.download-buttons {
+				display: flex;
+				gap: 8px;
+				margin-bottom: 10px;
+			}
+			.action-buttons {
+				display: flex;
+				gap: 8px;
+			}
+			#clear {
+				background: #dc3545;
+			}
+			#clear:hover {
+				background: #c82333;
+				box-shadow: 0 2px 8px rgba(220, 53, 69, 0.3);
+			}
+			.stats {
+				background: #f8f9fa;
+				padding: 15px;
+				border-radius: 4px;
+				margin-bottom: 15px;
+			}
+			.stat-row {
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 8px;
+			}
+			.stat-row:last-child {
+				margin-bottom: 0;
+			}
+			.stat-label {
+				font-weight: 500;
+			}
+			.stat-value {
+				font-weight: 600;
+			}
+			.stat-correct {
+				color: #28a745;
+			}
+			.stat-wrong {
+				color: #dc3545;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>Zenlish Result Exporter</h2>
+
+		<div class="status" id="status">Waiting for POST request...</div>
+
+		<div id="content" style="display: none">
+			<div class="stats">
+				<div class="stat-row">
+					<span class="stat-label">Tổng số câu:</span>
+					<span class="stat-value" id="totalQuestions">0</span>
+				</div>
+				<div class="stat-row">
+					<span class="stat-label">Đã làm:</span>
+					<span class="stat-value" id="answeredQuestions">0</span>
+				</div>
+				<div class="stat-row">
+					<span class="stat-label">Đúng:</span>
+					<span class="stat-value stat-correct" id="correctAnswers">0</span>
+				</div>
+				<div class="stat-row">
+					<span class="stat-label">Sai:</span>
+					<span class="stat-value stat-wrong" id="wrongAnswers">0</span>
+				</div>
+			</div>
+
+			<div class="buttons">
+				<div style="margin-bottom: 10px">
+					<strong>Export:</strong>
+				</div>
+				<div class="download-buttons">
+					<button id="downloadAnswerKey" title="Export right answers">
+						Answer Key
+					</button>
+					<button id="downloadParsed" title="Export parsed results">
+						Parsed
+					</button>
+					<button id="downloadRaw" title="Export raw data">Raw Data</button>
+				</div>
+				<div class="action-buttons">
+					<button id="clear">Clear Data</button>
+				</div>
+			</div>
+		</div>
+
+		<script src="popup.js"></script>
+	</body>
+</html>

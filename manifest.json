@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Zenlish Result Exporter",
+  "version": "1.0",
+  "description": "Export Zenlish test results to JSON",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://zenlishtoeic.vn/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://zenlishtoeic.vn/*"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://zenlishtoeic.vn/*"],
+      "js": ["bridge.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Zenlish Exporter"
+  }
+}
