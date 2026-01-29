@@ -57,7 +57,7 @@ function parseResponse(responseData) {
 				}
 
 				if (subQ.check_answer) {
-					isCorrect = subQ.check_answer === "right";
+					isCorrect = subQ.check_answer === "correct";
 				}
 
 				result[type][questionNum] = {
